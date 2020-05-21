@@ -1,18 +1,20 @@
 package com.example.demo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Order1 {
-    @Id
+public class OrderDetails {
+    @Id 
     private String id;
     private String price, quantity, orderTotal;
     private String itemName;
-    public Order1(){
+    public OrderDetails(){
 
     }
-    public Order1(String id, String price, String quantity, String orderTotal, String itemName) {
+    public OrderDetails(String id, String price, String quantity, String orderTotal, String itemName) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;

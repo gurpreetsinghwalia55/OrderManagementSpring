@@ -1,23 +1,25 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class OrderController {
     @Autowired
     private OrderService orderService;
     @RequestMapping("/orders")
-    public List<Order1> getAllOrders(){
+    public List<OrderDetails> getAllOrders(){
         return orderService.getAllOrders();
     }
-    @RequestMapping(method = RequestMethod.POST, value = "/orders/{id}")
-    public void addOrder(@RequestBody Order1 order1){
-        orderService.placeOrder(order1);
+    @RequestMapping(method = RequestMethod.POST, value = "/orders/")
+    public void addOrder(@RequestBody OrderDetails orderDetails){
+        orderService.placeOrder(orderDetails);
+    }
+    @RequestMapping("orders/{id}")
+    public Optional<OrderDetails> getOrderById(@PathVariable String id){
+        return orderService.getOrder(id);
     }
 }
