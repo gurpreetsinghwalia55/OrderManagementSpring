@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,19 +9,39 @@ import javax.persistence.Id;
 
 @Entity
 public class OrderDetails {
-    @Id 
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String price, quantity, orderTotal;
     private String itemName;
+    private String customerName, customerAddress;
     public OrderDetails(){
 
     }
-    public OrderDetails(String id, String price, String quantity, String orderTotal, String itemName) {
+    public OrderDetails(String id, String price, String quantity, String orderTotal, String itemName, String customerName, String customerAddress) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
         this.orderTotal = orderTotal;
         this.itemName = itemName;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
     public String getId() {
