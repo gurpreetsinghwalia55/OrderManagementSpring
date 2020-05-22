@@ -6,7 +6,7 @@ This webservice is developed using Spring, Hibernate and Apache Derby. This webe
 
 Since Apache Derby is an in-memory database make sure to create order first before viewing the orders.
 
-#Running the Webservice
+# Running the Webservice
 To run the webservice run the jar file named "demo-0.0.1-SNAPSHOT.jar" int the target directory using the command 
 ```
 java -jar demo-0.0.1-SNAPSHOT.jar
