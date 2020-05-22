@@ -21,7 +21,7 @@ curl --location --request POST 'localhost:8080/orders/' \
 --header 'Content-Type: text/plain' \
 --data-raw '{
     "price": "10",
-    "quantity": "10",
+    "quantity": "1",
     "orderTotal": "10",
     "itemName": "Milk",
     "customerName" : "Gurpreet",
